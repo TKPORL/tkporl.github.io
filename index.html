@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tsinho地址发布页</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Tsinho - 个人主页</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-blue: #1e40af;
+            --light-blue: #dbeafe;
+            --white: #ffffff;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,951 +24,312 @@
         }
 
         body {
-            font-family: 'Noto Sans SC', sans-serif;
-            background: linear-gradient(135deg, #ffeef8 0%, #f0e6ff 50%, #e6f3ff 100%);
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
             min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
         }
 
-        /* 二次元背景装饰 */
-        .anime-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 182, 193, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(221, 160, 221, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255, 192, 203, 0.2) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 1;
-            animation: bgShift 20s ease-in-out infinite;
-        }
-
-        @keyframes bgShift {
-            0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
-            25% { transform: translateX(-20px) translateY(-10px) rotate(1deg); }
-            50% { transform: translateX(10px) translateY(-20px) rotate(-1deg); }
-            75% { transform: translateX(-10px) translateY(10px) rotate(0.5deg); }
-        }
-
-        /* 主容器 */
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
-            min-height: 100vh;
-            position: relative;
-            padding: 20px 0;
+            padding: 0 20px;
         }
 
-        /* 二次元装饰元素 */
-        .anime-decoration {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .floating-element {
-            position: absolute;
-            font-size: 28px;
-            animation: float 8s ease-in-out infinite;
-            opacity: 0.6;
-            filter: drop-shadow(0 0 10px rgba(255, 182, 193, 0.5));
-        }
-
-        .element-1 { top: 15%; left: 10%; animation-delay: 0s; }
-        .element-2 { top: 25%; right: 15%; animation-delay: 1.5s; }
-        .element-3 { top: 65%; left: 8%; animation-delay: 3s; }
-        .element-4 { top: 75%; right: 12%; animation-delay: 4.5s; }
-        .element-5 { top: 45%; left: 50%; animation-delay: 2s; }
-        .element-6 { top: 35%; right: 30%; animation-delay: 5s; }
-        .element-7 { top: 20%; left: 20%; animation-delay: 6s; }
-        .element-8 { top: 80%; right: 25%; animation-delay: 7s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
-            25% { transform: translateY(-15px) rotate(90deg) scale(1.1); }
-            50% { transform: translateY(-25px) rotate(180deg) scale(0.9); }
-            75% { transform: translateY(-10px) rotate(270deg) scale(1.05); }
-        }
-
-        /* 头部区域 */
-        .header {
+        header {
+            background: linear-gradient(135deg, rgb(68 73 87 / 85%) 0%, rgb(0 0 0 / 85%) 100%);
+            color: var(--white);
+            padding: 80px 0 60px;
             text-align: center;
-            padding: 20px 16px;
-            position: relative;
-            z-index: 2;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: 60px;
         }
 
-        .logo-container {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 16px;
-        }
-
-        .logo {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(45deg, #ffb6c1, #ffc0cb, #dda0dd, #e6e6fa);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            font-weight: bold;
-            color: white;
-            box-shadow: 0 8px 32px rgba(255, 182, 193, 0.4);
-            animation: pulse 3s ease-in-out infinite;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            overflow: hidden;
-        }
-
-        .logo-inner {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        .logo-glow {
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            right: -15px;
-            bottom: -15px;
-            background: linear-gradient(45deg, #ffb6c1, #ffc0cb, #dda0dd);
-            border-radius: 50%;
-            opacity: 0.2;
-            animation: glow 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @keyframes glow {
-            0%, 100% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.1); opacity: 0.6; }
-        }
-
-        .main-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: #d63384;
-            margin-bottom: 8px;
-            text-shadow: 0 2px 8px rgba(214, 51, 132, 0.3);
-        }
-
-        .subtitle {
-            font-size: 14px;
-            color: #e91e63;
-            font-weight: 400;
-            opacity: 0.8;
-        }
-
-        /* 主要内容卡片 */
-        .main-content {
-            background: rgba(255, 255, 255, 0.85);
-            margin: 0 16px;
-            border-radius: 25px;
-            padding: 16px;
-            box-shadow: 0 20px 40px rgba(255, 182, 193, 0.2);
-            backdrop-filter: blur(15px);
-            position: relative;
-            z-index: 2;
-            border: 1px solid rgba(255, 182, 193, 0.3);
-        }
-
-        .bookmark-tip {
-            background: linear-gradient(45deg, #ff9a9e, #fecfef);
-            padding: 8px 12px;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            color: #333;
-            box-shadow: 0 4px 12px rgba(255, 154, 158, 0.3);
-        }
-
-        .tip-icon {
-            font-size: 16px;
-        }
-
-        .contact-info {
-            background: linear-gradient(45deg, #a8edea, #fed6e3);
-            padding: 8px 12px;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            color: #333;
-            box-shadow: 0 4px 12px rgba(168, 237, 234, 0.3);
-        }
-
-        .contact-icon {
-            font-size: 16px;
-        }
-
-        /* 交互按钮组 */
-        .button-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .interactive-btn {
-            background: linear-gradient(45deg, #ffb6c1, #ffc0cb);
-            border: none;
-            border-radius: 18px;
-            padding: 10px 8px;
-            color: #d63384;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .profile-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
-            box-shadow: 0 4px 12px rgba(255, 182, 193, 0.4);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            gap: 15px;
         }
 
-        .interactive-btn:nth-child(1) { background: linear-gradient(45deg, #ffb6c1, #ffc0cb); }
-        .interactive-btn:nth-child(2) { background: linear-gradient(45deg, #dda0dd, #e6e6fa); }
-        .interactive-btn:nth-child(3) { background: linear-gradient(45deg, #ffc0cb, #ffb6c1); }
-        .interactive-btn:nth-child(4) { background: linear-gradient(45deg, #f0e6ff, #e6f3ff); }
-        .interactive-btn:nth-child(5) { background: linear-gradient(45deg, #ffeef8, #f0e6ff); }
-        .interactive-btn:nth-child(6) { background: linear-gradient(45deg, #e6e6fa, #dda0dd); }
-
-        .interactive-btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+            box-shadow: var(--shadow);
+            background: var(--white);
         }
 
-        .interactive-btn:active {
-            transform: translateY(-2px);
+        .name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .btn-icon {
-            font-size: 24px;
+        .title {
+            font-size: 1.1rem;
+            opacity: 0.95;
         }
 
-        .btn-text {
-            font-size: 13px;
-            text-align: center;
+        main {
+            padding-bottom: 60px;
         }
 
-        /* 群组链接 */
-        .group-link-container {
-            margin-bottom: 18px;
+        .section {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
         }
 
-        .group-link-btn {
-            width: 100%;
-            background: linear-gradient(45deg, #ff69b4, #ff1493);
-            border: none;
-            border-radius: 20px;
-            padding: 14px 20px;
-            color: white;
-            font-size: 14px;
+        .section-title {
+            font-size: 1.3rem;
             font-weight: 600;
-            cursor: pointer;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 10px;
-            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
         }
 
-        .group-link-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.5);
+        .section p {
+            color: var(--text-light);
+            line-height: 1.8;
         }
 
-        .group-icon {
-            font-size: 20px;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        .btn-shine {
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-
-        /* 永久地址信息 */
-        .address-section {
-            background: linear-gradient(45deg, #ffb6c1, #dda0dd);
-            padding: 16px;
-            border-radius: 20px;
-            color: #d63384;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .address-header {
+        .tech-tags {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 10px;
-            font-size: 13px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: 500;
         }
 
-        .address-icon {
-            font-size: 16px;
-        }
-
-        .address-url {
-            margin-bottom: 12px;
-        }
-
-        .url-text {
-            background: rgba(255, 255, 255, 0.6);
-            padding: 8px 16px;
-            border-radius: 12px;
-            font-family: monospace;
-            font-size: 14px;
-            color: #d63384;
-            display: inline-block;
-            margin-right: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .url-suffix {
-            font-size: 14px;
-        }
-
-        .address-tips p {
-            font-size: 12px;
-            margin-bottom: 4px;
-            opacity: 0.9;
-        }
-
-        /* 底部区域 */
-        .footer {
-            margin: 20px 16px 0;
+        .timeline {
             position: relative;
-            z-index: 2;
+            padding-left: 60px;
         }
 
-        .footer-banner {
-            background: linear-gradient(45deg, #ffecd2, #fcb69f);
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(252, 182, 159, 0.3);
-        }
-
-        .banner-content h3 {
-            font-size: 16px;
-            color: #333;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .banner-content p {
-            font-size: 12px;
-            color: #666;
-        }
-
-        .banner-decoration {
+        .timeline::before {
+            content: '';
             position: absolute;
+            left: 20px;
+            top: 0;
             bottom: 0;
-            right: 0;
-            opacity: 0.3;
+            width: 2px;
+            background: var(--light-blue);
         }
 
-        .sheep {
-            font-size: 24px;
-            position: absolute;
-            bottom: 10px;
-            right: 20px;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .clouds {
-            position: absolute;
-            top: -10px;
-            right: 0;
-        }
-
-        .cloud {
-            font-size: 16px;
-            position: absolute;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .cloud-1 { right: 0; animation-delay: 0s; }
-        .cloud-2 { right: 20px; animation-delay: 2s; }
-        .cloud-3 { right: 40px; animation-delay: 4s; }
-
-        /* 底部导航 */
-        .bottom-nav {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 12px 16px;
-            margin-top: 20px;
-            border-radius: 20px 20px 0 0;
+        .timeline-item {
             position: relative;
-            z-index: 2;
+            margin-bottom: 25px;
         }
 
-        .nav-icons {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin-bottom: 8px;
+        .timeline-item:last-child {
+            margin-bottom: 0;
         }
 
-        .nav-icon {
+        .timeline-date {
+            position: absolute;
+            left: -60px;
+            top: 0;
             width: 40px;
             height: 40px;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--primary-blue);
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-icon:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.1);
-        }
-
-        .menu-icon {
-            position: relative;
-        }
-
-        .sparkle {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            font-size: 12px;
-            animation: sparkle 2s infinite;
-        }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 0; transform: scale(0.5); }
-            50% { opacity: 1; transform: scale(1); }
-        }
-
-        .notification {
-            position: relative;
-        }
-
-        .badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: #ff4757;
-            color: white;
-            font-size: 10px;
-            padding: 2px 6px;
-            border-radius: 10px;
-            min-width: 16px;
+            font-weight: 600;
+            font-size: 0.75rem;
             text-align: center;
         }
 
-        .nav-dots {
-            display: flex;
-            justify-content: center;
+        .timeline-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+        }
+
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
             gap: 8px;
-        }
-
-        .nav-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
+            background: var(--white);
+            color: var(--primary-blue);
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
         }
 
-        .nav-dot.active {
-            background: white;
-            transform: scale(1.2);
+        .link-btn:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-3px);
         }
 
-        /* 响应式设计 */
-        @media (max-width: 768px) {
-            .container {
-                max-width: 100%;
-                padding: 20px 15px;
-            }
-            
-            .button-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-            
-            .interactive-btn {
-                padding: 12px 10px;
-            }
-            
-            .btn-text {
-                font-size: 12px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .main-content {
-                margin: 0 8px;
-                padding: 20px;
-            }
-            
-            .main-title {
-                font-size: 18px;
-            }
-            
-            .button-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-            
-            .interactive-btn {
-                padding: 14px 8px;
-            }
-            
-            .btn-text {
-                font-size: 11px;
-            }
+        .link-btn i {
+            font-size: 1rem;
         }
 
-        /* 加载动画 */
-        .container {
-            animation: fadeIn 0.8s ease-out;
+        footer {
+            background: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 25px 0;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .year-display {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 600px) {
+            .name {
+                font-size: 1.8rem;
+            }
+
+            .timeline {
+                padding-left: 50px;
+            }
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .timeline-date {
+                left: -50px;
+                width: 35px;
+                height: 35px;
+                font-size: 0.65rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- 主容器 -->
-    <div class="container">
-        <!-- 二次元背景 -->
-        <div class="anime-bg"></div>
-        
-        <!-- 二次元装饰元素 -->
-        <div class="anime-decoration">
-            <div class="floating-element element-1">✨</div>
-            <div class="floating-element element-2">🌸</div>
-            <div class="floating-element element-3">💫</div>
-            <div class="floating-element element-4">⭐</div>
-            <div class="floating-element element-5">🎀</div>
-            <div class="floating-element element-6">💖</div>
-            <div class="floating-element element-7">🦄</div>
-            <div class="floating-element element-8">🌈</div>
+    <header>
+        <div class="container">
+            <div class="profile-container">
+                <img src="http://youke.xn--y7xa690gmna.cn/s1/2026/01/19/696db02aba2cd.webp" alt="头像" class="avatar">
+                <h1 class="name">Tsinho</h1>
+                <p class="title">软件开发工程师</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div style="text-align: center;">
+            <a href="https://link3.cc/xakjyxgs" target="_blank" class="link-btn">
+                <i class="fas fa-globe"></i>
+                <span>官网</span>
+            </a>
         </div>
 
-        <!-- 头部区域 -->
-        <header class="header">
-            <div class="logo-container">
-                <div class="logo">
-                    <img src="https://img2.baidu.com/it/u=1978192862,2048448374&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" alt="头像" class="logo-inner">
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-user"></i> 关于我</h2>
+            <p>8年软件开发经验，专注于全栈开发与系统架构设计。擅长将复杂业务需求转化为高效、可维护的技术解决方案。</p>
+        </section>
+
+        <div style="text-align: center;">
+            <a href="https://qm.qq.com/q/1H40ijaQCE" target="_blank" class="link-btn">
+                <i class="fab fa-qq"></i>
+                <span>官方QQ群</span>
+            </a>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-code"></i> 技术栈</h2>
+            <div class="tech-tags">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">Vue.js</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">高并发</span>
+                <span class="tech-tag">微服务</span>
+            </div>
+        </section>
+
+        <div style="text-align: center;">
+            <a href="mailto:Tsinhos@qq.com" class="link-btn">
+                <i class="fas fa-envelope"></i>
+                <span>邮箱</span>
+            </a>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> 经历</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2020<br>至今</div>
+                    <div class="timeline-content">
+                        <h3>高级全栈工程师</h3>
+                        <p>核心业务系统架构设计与开发，微服务架构迁移</p>
+                    </div>
                 </div>
-                <div class="logo-glow"></div>
-            </div>
-            <h1 class="main-title">Tsinho地址发布页</h1>
-            <p class="subtitle">萌系专属 · 永久地址发布</p>
-        </header>
-
-        <!-- 主要内容卡片 -->
-        <main class="main-content">
-            <!-- 收藏提示 -->
-            <div class="bookmark-tip">
-                <span class="tip-icon">📌</span>
-                <span>请 Ctrl+D 收藏本页到浏览器收藏夹回家不迷路</span>
-            </div>
-
-            <!-- 联系信息 -->
-            <div class="contact-info">
-                <span class="contact-icon">💬</span>
-                <span>若打不开可联系站长QQ:3496454360</span>
-            </div>
-
-            <!-- 网址按钮组 -->
-            <!-- 用户可修改以下URL地址 -->
-            <div class="button-grid">
-                <button class="interactive-btn btn-1" data-text="官网" onclick="window.open('https://link3.cc/xakjyxgs', '_blank')">
-                    <span class="btn-icon">🌐</span>
-                    <span class="btn-text">主网址</span>
-                </button>
-                <button class="interactive-btn btn-2" data-text="备用网址1" onclick="window.open('https://backup1.example.com', '_blank')">
-                    <span class="btn-icon">🔗</span>
-                    <span class="btn-text">备用网址1</span>
-                </button>
-                <button class="interactive-btn btn-3" data-text="备用网址2" onclick="window.open('https://backup2.example.com', '_blank')">
-                    <span class="btn-icon">🔗</span>
-                    <span class="btn-text">备用网址2</span>
-                </button>
-                <button class="interactive-btn btn-4" data-text="备用网址3" onclick="window.open('https://backup3.example.com', '_blank')">
-                    <span class="btn-icon">🔗</span>
-                    <span class="btn-text">备用网址3</span>
-                </button>
-                <button class="interactive-btn btn-5" data-text="备用网址4" onclick="window.open('https://backup4.example.com', '_blank')">
-                    <span class="btn-icon">🔗</span>
-                    <span class="btn-text">备用网址4</span>
-                </button>
-                <button class="interactive-btn btn-6" data-text="备用网址5" onclick="window.open('https://backup5.example.com', '_blank')">
-                    <span class="btn-icon">🔗</span>
-                    <span class="btn-text">备用网址5</span>
-                </button>
-            </div>
-
-            <!-- 群组链接 -->
-            <!-- 用户可修改以下群组链接地址 -->
-            <div class="group-link-container">
-                <button class="group-link-btn" id="qqGroupBtn">
-                    <span class="group-icon">👆</span>
-                    <span class="group-text">点击此处加入内部群，永不迷路</span>
-                    <div class="btn-shine"></div>
-                </button>
-            </div>
-
-            <!-- 永久地址信息 -->
-            <div class="address-section">
-                <div class="address-header">
-                    <span class="address-icon">🔗</span>
-                    <span>收藏本站永久地址:</span>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2017<br>2020</div>
+                    <div class="timeline-content">
+                        <h3>后端开发工程师</h3>
+                        <p>电商平台后端开发，数据库性能优化</p>
+                    </div>
                 </div>
-                <div class="address-url">
-                    <span class="url-text">https://tkporl.github.io/</span>
-                    <span class="url-suffix">,防止失联!</span>
-                </div>
-                <div class="address-tips">
-                    <p>网站域名经常更新,防止网站打不开</p>
-                    <p>请务必截图收藏此网页,永久有效!</p>
-                </div>
-            </div>
-        </main>
-
-        <!-- 底部区域 -->
-        <footer class="footer">
-            <div class="footer-banner">
-                <div class="banner-content">
-                    <h3>Tsinho地址发布页</h3>
-                    <p>© 2026 . All Rights Reserved</p>
-                </div>
-                <div class="banner-decoration">
-                    <div class="sheep">🐑</div>
-                    <div class="clouds">
-                        <div class="cloud cloud-1">☁️</div>
-                        <div class="cloud cloud-2">☁️</div>
-                        <div class="cloud cloud-3">☁️</div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2015<br>2017</div>
+                    <div class="timeline-content">
+                        <h3>软件开发工程师</h3>
+                        <p>企业级管理系统设计与开发</p>
                     </div>
                 </div>
             </div>
-        </footer>
+        </section>
+    </main>
 
-    </div>
-
-    <script>
-        // 复制到剪贴板功能
-        function copyToClipboard(text) {
-            if (navigator.clipboard && window.isSecureContext) {
-                // 使用现代API
-                navigator.clipboard.writeText(text).then(function() {
-                    showCopySuccess();
-                }).catch(function(err) {
-                    console.error('复制失败: ', err);
-                    fallbackCopyTextToClipboard(text);
-                });
-            } else {
-                // 降级方案
-                fallbackCopyTextToClipboard(text);
-            }
-        }
-
-        // 降级复制方案
-        function fallbackCopyTextToClipboard(text) {
-            var textArea = document.createElement("textarea");
-            textArea.value = text;
-            textArea.style.top = "0";
-            textArea.style.left = "0";
-            textArea.style.position = "fixed";
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
-            try {
-                var successful = document.execCommand('copy');
-                if (successful) {
-                    showCopySuccess();
-                } else {
-                    showCopyError();
-                }
-            } catch (err) {
-                console.error('降级复制失败: ', err);
-                showCopyError();
-            }
-            document.body.removeChild(textArea);
-        }
-
-        // 显示复制成功提示
-        function showCopySuccess() {
-            // 创建提示元素
-            var toast = document.createElement('div');
-            toast.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: #28a745;
-                color: white;
-                padding: 12px 20px;
-                border-radius: 8px;
-                font-size: 14px;
-                font-weight: 600;
-                z-index: 10000;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-                animation: slideInRight 0.3s ease-out;
-            `;
-            toast.textContent = '✅ 复制成功！';
-            document.body.appendChild(toast);
-            
-            // 3秒后移除提示
-            setTimeout(function() {
-                toast.style.animation = 'slideOutRight 0.3s ease-in';
-                setTimeout(function() {
-                    if (toast.parentNode) {
-                        toast.parentNode.removeChild(toast);
-                    }
-                }, 300);
-            }, 3000);
-        }
-
-        // 显示复制失败提示
-        function showCopyError() {
-            var toast = document.createElement('div');
-            toast.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: #dc3545;
-                color: white;
-                padding: 12px 20px;
-                border-radius: 8px;
-                font-size: 14px;
-                font-weight: 600;
-                z-index: 10000;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-                animation: slideInRight 0.3s ease-out;
-            `;
-            toast.textContent = '❌ 复制失败，请手动复制';
-            document.body.appendChild(toast);
-            
-            setTimeout(function() {
-                toast.style.animation = 'slideOutRight 0.3s ease-in';
-                setTimeout(function() {
-                    if (toast.parentNode) {
-                        toast.parentNode.removeChild(toast);
-                    }
-                }, 300);
-            }, 3000);
-        }
-
-        // 页面加载完成后的初始化
-        document.addEventListener('DOMContentLoaded', function() {
-            // 设置QQ群链接按钮
-            const qqGroupBtn = document.getElementById('qqGroupBtn');
-            if (qqGroupBtn) {
-                qqGroupBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    // 跳转到指定的QQ群链接
-                    window.open('https://qm.qq.com/q/XkpzxsptC2', '_blank');
-                    
-                    // 添加点击效果
-                    this.style.transform = 'scale(0.98)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
-                    
-                    // 显示跳转提示
-                    showNotification('正在跳转到QQ群...');
-                });
-            }
-
-            // 为交互按钮添加点击效果和跳转功能
-            const interactiveBtns = document.querySelectorAll('.interactive-btn');
-            interactiveBtns.forEach((btn, index) => {
-                btn.addEventListener('click', function() {
-                    // 添加点击动画
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
-                    
-                    // 显示点击反馈
-                    showClickFeedback(this);
-                });
-            });
-
-            // 底部导航点击效果
-            const navIcons = document.querySelectorAll('.nav-icon');
-            navIcons.forEach(icon => {
-                icon.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.9)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 100);
-                });
-            });
-
-            // 导航点点击效果
-            const navDots = document.querySelectorAll('.nav-dot');
-            navDots.forEach((dot, index) => {
-                dot.addEventListener('click', function() {
-                    // 移除所有active类
-                    navDots.forEach(d => d.classList.remove('active'));
-                    // 添加active类到当前点击的点
-                    this.classList.add('active');
-                });
-            });
-
-            // 添加滚动视差效果
-            window.addEventListener('scroll', function() {
-                const scrolled = window.pageYOffset;
-                const parallax = document.querySelectorAll('.floating-element');
-                const speed = 0.5;
-                
-                parallax.forEach(element => {
-                    const yPos = -(scrolled * speed);
-                    element.style.transform = `translateY(${yPos}px)`;
-                });
-            });
-
-            // 添加鼠标跟随效果
-            document.addEventListener('mousemove', function(e) {
-                const floatingElements = document.querySelectorAll('.floating-element');
-                const x = e.clientX / window.innerWidth;
-                const y = e.clientY / window.innerHeight;
-                
-                floatingElements.forEach((element, index) => {
-                    const speed = (index + 1) * 0.02;
-                    const xPos = (x - 0.5) * speed * 100;
-                    const yPos = (y - 0.5) * speed * 100;
-                    element.style.transform = `translate(${xPos}px, ${yPos}px)`;
-                });
-            });
-        });
-
-        // 显示点击反馈
-        function showClickFeedback(element) {
-            const rect = element.getBoundingClientRect();
-            const feedback = document.createElement('div');
-            feedback.innerHTML = '✨';
-            feedback.style.position = 'fixed';
-            feedback.style.left = rect.left + rect.width / 2 + 'px';
-            feedback.style.top = rect.top + rect.height / 2 + 'px';
-            feedback.style.pointerEvents = 'none';
-            feedback.style.fontSize = '20px';
-            feedback.style.zIndex = '9999';
-            feedback.style.transform = 'translate(-50%, -50%)';
-            feedback.style.animation = 'floatUp 1s ease-out forwards';
-            
-            document.body.appendChild(feedback);
-            
-            setTimeout(() => {
-                document.body.removeChild(feedback);
-            }, 1000);
-        }
-
-        // 显示通知
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.textContent = message;
-            notification.style.position = 'fixed';
-            notification.style.top = '50%';
-            notification.style.left = '50%';
-            notification.style.transform = 'translate(-50%, -50%)';
-            notification.style.background = 'rgba(0, 0, 0, 0.8)';
-            notification.style.color = 'white';
-            notification.style.padding = '12px 24px';
-            notification.style.borderRadius = '20px';
-            notification.style.zIndex = '9999';
-            notification.style.fontSize = '14px';
-            notification.style.animation = 'fadeInOut 2s ease-in-out forwards';
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                document.body.removeChild(notification);
-            }, 2000);
-        }
-
-        // 添加CSS动画
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes floatUp {
-                0% {
-                    opacity: 1;
-                    transform: translate(-50%, -50%) scale(1);
-                }
-                100% {
-                    opacity: 0;
-                    transform: translate(-50%, -150%) scale(1.5);
-                }
-            }
-            
-            @keyframes fadeInOut {
-                0% {
-                    opacity: 0;
-                    transform: translate(-50%, -50%) scale(0.8);
-                }
-                20%, 80% {
-                    opacity: 1;
-                    transform: translate(-50%, -50%) scale(1);
-                }
-                100% {
-                    opacity: 0;
-                    transform: translate(-50%, -50%) scale(0.8);
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="copyright">&copy; by Tsinho 2026</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

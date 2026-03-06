@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tsinho - 个人主页</title>
+    <title>Tsinho资源库 - 下载中心</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #1e40af;
-            --light-blue: #dbeafe;
-            --white: #ffffff;
-            --text-dark: #1e293b;
-            --text-light: #64748b;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --border-radius: 12px;
+            --cream-white: #F8F6F1;
+            --charcoal-gray: #2D3142;
+            --sakura-pink: #FFB7C5;
+            --matcha-green: #88D18A;
+            --soft-gray: #E8E6E1;
+            --warm-gray: #9A9A9A;
         }
 
         * {
@@ -24,312 +23,562 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
-            color: var(--text-dark);
-            line-height: 1.6;
+            font-family: 'Noto Sans SC', sans-serif;
+            background: linear-gradient(180deg, #F8F6F1 0%, #EDE9E0 50%, #E5E1D8 100%);
+            color: var(--charcoal-gray);
             min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .zen-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .zen-circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.03;
+            background: radial-gradient(circle, var(--charcoal-gray) 0%, transparent 70%);
+        }
+
+        .zen-circle:nth-child(1) {
+            width: 600px;
+            height: 600px;
+            top: -200px;
+            right: -200px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .zen-circle:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            bottom: -100px;
+            left: -100px;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        .zen-circle:nth-child(3) {
+            width: 300px;
+            height: 300px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: breathe 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(30px, 30px) rotate(180deg); }
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.03; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.06; }
         }
 
         .container {
-            max-width: 800px;
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         header {
-            background: linear-gradient(135deg, rgb(68 73 87 / 85%) 0%, rgb(0 0 0 / 85%) 100%);
-            color: var(--white);
-            padding: 80px 0 60px;
             text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
             margin-bottom: 60px;
+            animation: fadeInDown 0.8s ease-out;
         }
 
-        .profile-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .avatar {
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .logo-ring {
             width: 120px;
             height: 120px;
-            border-radius: 50%;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            object-fit: cover;
-            box-shadow: var(--shadow);
-            background: var(--white);
-        }
-
-        .name {
-            font-size: 2.2rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .title {
-            font-size: 1.1rem;
-            opacity: 0.95;
-        }
-
-        main {
-            padding-bottom: 60px;
-        }
-
-        .section {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: var(--shadow);
-        }
-
-        .section-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section p {
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 15px;
-        }
-
-        .tech-tag {
-            background: var(--light-blue);
-            color: var(--primary-blue);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 60px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--light-blue);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 25px;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-date {
-            position: absolute;
-            left: -60px;
-            top: 0;
-            width: 40px;
-            height: 40px;
-            background: var(--primary-blue);
-            color: white;
+            border: 2px solid rgba(45, 49, 66, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(45, 49, 66, 0.08);
+        }
+
+        .logo-ring::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid rgba(45, 49, 66, 0.05);
+            animation: pulse-ring 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-ring {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0; }
+        }
+
+        .logo-icon {
+            font-size: 48px;
+            color: var(--charcoal-gray);
+        }
+
+        .site-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.5rem;
             font-weight: 600;
-            font-size: 0.75rem;
-            text-align: center;
+            color: var(--charcoal-gray);
+            letter-spacing: 8px;
+            margin-bottom: 12px;
         }
 
-        .timeline-content h3 {
-            color: var(--primary-blue);
-            margin-bottom: 5px;
-            font-size: 1rem;
+        .site-subtitle {
+            font-size: 0.95rem;
+            color: var(--warm-gray);
+            letter-spacing: 4px;
+            font-weight: 300;
         }
 
-        .timeline-content p {
-            font-size: 0.9rem;
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--charcoal-gray), transparent);
+            margin: 30px auto;
+            opacity: 0.3;
         }
 
-        .link-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--white);
-            color: var(--primary-blue);
-            padding: 10px 20px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-            margin-bottom: 20px;
-        }
-
-        .link-btn:hover {
-            background: var(--primary-blue);
-            color: var(--white);
-            transform: translateY(-3px);
-        }
-
-        .link-btn i {
-            font-size: 1rem;
-        }
-
-        footer {
-            background: var(--primary-blue);
-            color: var(--white);
-            text-align: center;
-            padding: 25px 0;
-        }
-
-        .footer-content {
+        main {
+            flex: 1;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 10px;
+            gap: 40px;
         }
 
-        .year-display {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .download-section {
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
-        .copyright {
-            font-size: 0.85rem;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .download-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 48px 40px;
+            box-shadow: 
+                0 4px 24px rgba(45, 49, 66, 0.06),
+                0 1px 2px rgba(45, 49, 66, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .download-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--sakura-pink), var(--matcha-green));
             opacity: 0.8;
         }
 
+        .download-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 
+                0 12px 48px rgba(45, 49, 66, 0.1),
+                0 4px 8px rgba(45, 49, 66, 0.06);
+        }
+
+        .download-header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .download-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--sakura-pink) 0%, rgba(255, 183, 197, 0.6) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(255, 183, 197, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .download-card:hover .download-icon-wrapper {
+            transform: scale(1.05);
+            box-shadow: 0 12px 32px rgba(255, 183, 197, 0.4);
+        }
+
+        .download-icon {
+            font-size: 32px;
+            color: white;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .download-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--charcoal-gray);
+            margin-bottom: 8px;
+        }
+
+        .download-version {
+            font-size: 0.85rem;
+            color: var(--warm-gray);
+        }
+
+        .download-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 18px 32px;
+            background: linear-gradient(135deg, var(--charcoal-gray) 0%, #3D4255 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(45, 49, 66, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .download-button:hover::before {
+            left: 100%;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(45, 49, 66, 0.3);
+        }
+
+        .download-button:active {
+            transform: translateY(0);
+        }
+
+        .download-button i {
+            font-size: 1.2rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        .download-info {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(45, 49, 66, 0.08);
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            color: var(--warm-gray);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            font-size: 0.9rem;
+            color: var(--charcoal-gray);
+            font-weight: 500;
+        }
+
+        .links-section {
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .link-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            padding: 24px;
+            text-decoration: none;
+            color: var(--charcoal-gray);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 12px rgba(45, 49, 66, 0.04);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .link-card:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(45, 49, 66, 0.08);
+        }
+
+        .link-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .link-card:nth-child(1) .link-icon {
+            background: linear-gradient(135deg, var(--matcha-green) 0%, rgba(136, 209, 138, 0.6) 100%);
+            color: white;
+        }
+
+        .link-card:nth-child(2) .link-icon {
+            background: linear-gradient(135deg, var(--sakura-pink) 0%, rgba(255, 183, 197, 0.6) 100%);
+            color: white;
+        }
+
+        .link-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .link-title {
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .link-desc {
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .link-arrow {
+            color: var(--warm-gray);
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .link-card:hover .link-arrow {
+            transform: translateX(4px);
+            color: var(--charcoal-gray);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0 20px;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .footer-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(45, 49, 66, 0.1), transparent);
+            margin-bottom: 24px;
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            color: var(--warm-gray);
+            letter-spacing: 2px;
+        }
+
+        .footer-text a {
+            color: var(--charcoal-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-text a:hover {
+            color: var(--sakura-pink);
+        }
+
+        .zen-quote {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.9rem;
+            color: var(--warm-gray);
+            font-style: italic;
+            margin-top: 16px;
+            opacity: 0.7;
+        }
+
         @media (max-width: 600px) {
-            .name {
+            .site-title {
                 font-size: 1.8rem;
+                letter-spacing: 4px;
             }
 
-            .timeline {
-                padding-left: 50px;
+            .download-card {
+                padding: 32px 24px;
             }
 
-            .timeline::before {
-                left: 15px;
+            .links-grid {
+                grid-template-columns: 1fr;
             }
 
-            .timeline-date {
-                left: -50px;
-                width: 35px;
-                height: 35px;
-                font-size: 0.65rem;
+            .download-info {
+                flex-direction: column;
+                gap: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="profile-container">
-                <img src="http://youke.xn--y7xa690gmna.cn/s1/2026/01/19/696db02aba2cd.webp" alt="头像" class="avatar">
-                <h1 class="name">Tsinho</h1>
-                <p class="title">软件开发工程师</p>
-            </div>
-        </div>
-    </header>
+    <div class="zen-background">
+        <div class="zen-circle"></div>
+        <div class="zen-circle"></div>
+        <div class="zen-circle"></div>
+    </div>
 
-    <main class="container">
-        <div style="text-align: center;">
-            <a href="https://link3.cc/xakjyxgs" target="_blank" class="link-btn">
-                <i class="fas fa-globe"></i>
-                <span>官网</span>
-            </a>
-        </div>
-
-        <section class="section">
-            <h2 class="section-title"><i class="fas fa-user"></i> 关于我</h2>
-            <p>8年软件开发经验，专注于全栈开发与系统架构设计。擅长将复杂业务需求转化为高效、可维护的技术解决方案。</p>
-        </section>
-
-        <div style="text-align: center;">
-            <a href="https://qm.qq.com/q/1H40ijaQCE" target="_blank" class="link-btn">
-                <i class="fab fa-qq"></i>
-                <span>官方QQ群</span>
-            </a>
-        </div>
-
-        <section class="section">
-            <h2 class="section-title"><i class="fas fa-code"></i> 技术栈</h2>
-            <div class="tech-tags">
-                <span class="tech-tag">Java</span>
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">Spring Boot</span>
-                <span class="tech-tag">Vue.js</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">MongoDB</span>
-                <span class="tech-tag">Docker</span>
-                <span class="tech-tag">高并发</span>
-                <span class="tech-tag">微服务</span>
-            </div>
-        </section>
-
-        <div style="text-align: center;">
-            <a href="mailto:Tsinhos@qq.com" class="link-btn">
-                <i class="fas fa-envelope"></i>
-                <span>邮箱</span>
-            </a>
-        </div>
-
-        <section class="section">
-            <h2 class="section-title"><i class="fas fa-briefcase"></i> 经历</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">2020<br>至今</div>
-                    <div class="timeline-content">
-                        <h3>高级全栈工程师</h3>
-                        <p>核心业务系统架构设计与开发，微服务架构迁移</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2017<br>2020</div>
-                    <div class="timeline-content">
-                        <h3>后端开发工程师</h3>
-                        <p>电商平台后端开发，数据库性能优化</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2015<br>2017</div>
-                    <div class="timeline-content">
-                        <h3>软件开发工程师</h3>
-                        <p>企业级管理系统设计与开发</p>
-                    </div>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo-ring">
+                    <i class="fas fa-infinity logo-icon"></i>
                 </div>
             </div>
-        </section>
-    </main>
+            <h1 class="site-title">Tsinho资源库</h1>
+            <p class="site-subtitle">DOWNLOAD CENTER</p>
+            <div class="divider"></div>
+        </header>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <p class="copyright">&copy; by Tsinho 2026</p>
-            </div>
-        </div>
-    </footer>
+        <main>
+            <section class="download-section">
+                <div class="download-card">
+                    <div class="download-header">
+                        <div class="download-icon-wrapper">
+                            <i class="fas fa-cloud-arrow-down download-icon"></i>
+                        </div>
+                        <h2 class="download-title">资源下载</h2>
+                        <p class="download-version">最新版本 · 安全可靠</p>
+                    </div>
+                    
+                    <a href="https://pan.xindukj.com/down.php/a9bcd9b37b29395267506d69b202ac26.apk" class="download-button" download>
+                        <i class="fas fa-download"></i>
+                        <span>立即下载</span>
+                    </a>
+
+                    <div class="download-info">
+                        <div class="info-item">
+                            <div class="info-label">文件类型</div>
+                            <div class="info-value">APK</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">支持平台</div>
+                            <div class="info-value">Android</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">安全状态</div>
+                            <div class="info-value">已验证</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="links-section">
+                <div class="links-grid">
+                    <a href="https://link3.cc/xakjyxgs" target="_blank" class="link-card">
+                        <div class="link-icon">
+                            <i class="fas fa-compass"></i>
+                        </div>
+                        <div class="link-content">
+                            <div class="link-title">导航站</div>
+                            <div class="link-desc">link3.cc/xakjyxgs</div>
+                        </div>
+                        <i class="fas fa-chevron-right link-arrow"></i>
+                    </a>
+
+                    <a href="mailto:TKPORL@outlook.com" class="link-card">
+                        <div class="link-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="link-content">
+                            <div class="link-title">邮箱反馈</div>
+                            <div class="link-desc">TKPORL@outlook.com</div>
+                        </div>
+                        <i class="fas fa-chevron-right link-arrow"></i>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-divider"></div>
+            <p class="footer-text">
+                &copy; 2026 Tsinho · <a href="mailto:TKPORL@outlook.com">联系我们</a>
+            </p>
+            <p class="zen-quote">"简约而不简单，宁静以致远"</p>
+        </footer>
+    </div>
 </body>
 </html>

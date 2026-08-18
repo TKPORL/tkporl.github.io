@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="1262" viewBox="0 0 3840 1262" role="img" aria-label="Tsinho资源库 动效 Logo">
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#fbfaf4"/>
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#72883e"/>
+      <stop offset="0.55" stop-color="#72883e"/>
+      <stop offset="1" stop-color="#72883e"/>
+    </linearGradient>
+    <linearGradient id="markGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#72883e"/>
+      <stop offset="0.42" stop-color="#72883e"/>
+      <stop offset="1" stop-color="#72883e"/>
+    </linearGradient>
+    <linearGradient id="highlightGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.34" stop-color="#72883e" stop-opacity="0.38"/>
+      <stop offset="0.72" stop-color="#72883e" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="flowGradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.2" stop-color="#72883e" stop-opacity="0.18"/>
+      <stop offset="0.48" stop-color="#ffffff" stop-opacity="0.78"/>
+      <stop offset="0.68" stop-color="#72883e" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="edgeGradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#72883e" stop-opacity="0"/>
+      <stop offset="0.22" stop-color="#72883e" stop-opacity="0.72"/>
+      <stop offset="0.5" stop-color="#72883e" stop-opacity="0.42"/>
+      <stop offset="0.78" stop-color="#72883e" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#72883e" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="auraGradient" cx="50%" cy="50%" r="58%">
+      <stop offset="0" stop-color="#72883e" stop-opacity="0.55"/>
+      <stop offset="0.52" stop-color="#72883e" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#72883e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="transparentGlow" cx="50%" cy="50%" r="66%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.32" stop-color="#72883e" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#72883e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mirrorGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#72883e" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#72883e" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="markGlow" x="-40%" y="-60%" width="180%" height="220%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="markUltraGlow" x="-55%" y="-70%" width="210%" height="240%">
+      <feGaussianBlur stdDeviation="4" result="tight"/>
+      <feGaussianBlur stdDeviation="12" result="wide"/>
+      <feMerge>
+        <feMergeNode in="wide"/>
+        <feMergeNode in="tight"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="markShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="5" dy="7" stdDeviation="4" flood-color="#72883e" flood-opacity="0.28"/>
+    </filter>
+    <filter id="markCrisp" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#72883e" flood-opacity="0.26"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#415b25" flood-opacity="0.18"/>
+    </filter>
+    <filter id="nameGlow" x="-30%" y="-45%" width="160%" height="190%">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#415b25" flood-opacity="0.3"/>
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#415b25" flood-opacity="0.18"/>
+    </filter>
+    <filter id="flowGlow" x="-20%" y="-80%" width="140%" height="260%">
+      <feGaussianBlur stdDeviation="5" result="wideFlow"/>
+      <feMerge>
+        <feMergeNode in="wideFlow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="transparentLift" x="-20%" y="-80%" width="140%" height="260%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <style>
+      .logo-letter { opacity: 0; transform-box: fill-box; transform-origin: center; animation: glyphFrameIn 0.9s steps(7, end) forwards; }
+      .mark-letter { opacity: 0; animation: markFrameIn 0.68s steps(6, end) forwards; }
+      .mark-line { stroke-dasharray: 760; stroke-dashoffset: 760; animation: drawLine 1.15s ease forwards .15s; }
+      .pixel { opacity: 0; animation: pixelIn .28s ease forwards; }
+      .particle { opacity: 0; transform-origin: center; animation: particlePulse 1.8s ease-in-out infinite; }
+      .spark { transform-origin: center; animation: sparkTwinkle 1.9s ease-in-out infinite; }
+      .aura-pulse { transform-origin: center; animation: auraBreath 3.4s ease-in-out infinite; }
+      .halo-ring { stroke-dasharray: 18 12; animation: orbitRing 4.8s linear infinite; }
+      .thunder { stroke-dasharray: 260; stroke-dashoffset: 260; animation: thunderFlash 1.15s steps(4, end) infinite; }
+      .electric-ring { stroke-dasharray: 440; stroke-dashoffset: 440; animation: electricRing 1.7s ease-in-out infinite; }
+      .mirror-glass { stroke-dasharray: 520; stroke-dashoffset: 520; animation: glassFlow 2.4s ease-in-out infinite; }
+      .shine { transform: translateX(-320px) skewX(-18deg); transform-origin: center; animation: sweep 2s ease-in-out .7s infinite; }
+      .flow-beam { transform: translateX(-620px) skewX(-16deg); transform-origin: center; animation: flowRight 2.35s cubic-bezier(.18,.72,.22,1) .35s infinite; }
+      .flow-line { stroke-dasharray: 150 520; stroke-dashoffset: 520; animation: lineFlow 1.65s linear infinite; }
+      @keyframes glyphFrameIn { 0% { opacity: 0; transform: translateY(22px) scale(.86); } 35% { opacity: .45; transform: translateY(10px) scale(.94); } 70% { opacity: .82; transform: translateY(3px) scale(1.03); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+      @keyframes markFrameIn { 0% { opacity: 0; } 28% { opacity: .38; } 64% { opacity: .78; } 100% { opacity: 1; } }
+      @keyframes drawLine { to { stroke-dashoffset: 0; } }
+      @keyframes pixelIn { to { opacity: 1; } }
+      @keyframes particlePulse { 0%, 100% { opacity: .22; transform: scale(.82); } 45% { opacity: 1; transform: scale(1.38); } }
+      @keyframes sparkTwinkle { 0%, 100% { opacity: .18; transform: scale(.82); } 45% { opacity: 1; transform: scale(1.45); } }
+      @keyframes auraBreath { 0%, 100% { transform: scale(.96); opacity: .12; } 50% { transform: scale(1.05); opacity: .28; } }
+      @keyframes orbitRing { to { stroke-dashoffset: -240; } }
+      @keyframes thunderFlash { 0% { stroke-dashoffset: 260; opacity: 0; } 22% { opacity: 1; } 46% { stroke-dashoffset: 0; opacity: .35; } 58% { opacity: 1; } 100% { stroke-dashoffset: 0; opacity: .72; } }
+      @keyframes electricRing { 0% { stroke-dashoffset: 440; opacity: .2; } 45% { opacity: .95; } 100% { stroke-dashoffset: 0; opacity: .38; } }
+      @keyframes glassFlow { 0% { stroke-dashoffset: 520; opacity: .18; } 45% { opacity: .88; } 100% { stroke-dashoffset: 0; opacity: .36; } }
+      @keyframes sweep { 0% { transform: translateX(-320px) skewX(-18deg); opacity: 0; } 22% { opacity: 0.46; } 72% { opacity: 0.46; } 100% { transform: translateX(760px) skewX(-18deg); opacity: 0; } }
+      @keyframes flowRight { 0% { transform: translateX(-620px) skewX(-16deg); opacity: 0; } 12% { opacity: 0.38; } 58% { opacity: 0.38; } 100% { transform: translateX(1660px) skewX(-16deg); opacity: 0; } }
+      @keyframes lineFlow { to { stroke-dashoffset: -520; } }
+    </style>
+  </defs>
+  <rect width="3840" height="1262" fill="url(#bgGradient)"/>
+  <g transform="translate(0.00 0.14) scale(2.742857)">
+  
+  <g transform="translate(112 104)">
+    <ellipse class="aura-pulse" cx="208" cy="128" rx="176" ry="102" fill="url(#auraGradient)" opacity="0.15"/>
+    <path class="halo-ring" d="M42 126 C82 30 334 30 374 126 C334 222 82 222 42 126" fill="none" stroke="url(#edgeGradient)" stroke-width="2" opacity="0.39"/>
+    <circle class="spark" cx="64" cy="62" r="3" fill="#72883e" opacity="0.66"/>
+    <circle class="spark" cx="352" cy="72" r="2.5" fill="#72883e" opacity="0.66"/>
+    <circle class="spark" cx="208" cy="232" r="2.5" fill="#72883e" opacity="0.66"/>
+      <text x="208" y="176" text-anchor="middle" font-family="Cinzel Decorative, Georgia, serif" font-size="191.84" font-weight="900" letter-spacing="3" transform="" fill="none" stroke="#72883e" stroke-width="22" opacity="0.18" filter="url(#markUltraGlow)"><tspan class="mark-letter" style="animation-delay:0.08s">T</tspan><tspan class="mark-letter" style="animation-delay:0.22s">H</tspan></text>
+      <text x="208" y="176" text-anchor="middle" font-family="Cinzel Decorative, Georgia, serif" font-size="191.84" font-weight="900" letter-spacing="3" transform="" fill="none" stroke="#72883e" stroke-width="24" opacity="0.18" filter="url(#markUltraGlow)"><tspan class="mark-letter" style="animation-delay:0.08s">T</tspan><tspan class="mark-letter" style="animation-delay:0.22s">H</tspan></text>
+    <text x="214" y="182" text-anchor="middle" font-family="Cinzel Decorative, Georgia, serif" font-size="191.84" font-weight="900" letter-spacing="3" transform="" fill="#72883e" opacity="0.2" filter="url(#markShadow)"><tspan class="mark-letter" style="animation-delay:0.08s">T</tspan><tspan class="mark-letter" style="animation-delay:0.22s">H</tspan></text>
+    <text x="208" y="176" text-anchor="middle" class="mark-line" font-family="Cinzel Decorative, Georgia, serif" font-size="191.84" font-weight="900" letter-spacing="3" transform="" fill="url(#markGradient)" stroke="#72883e" stroke-width="4" stroke-linejoin="round" paint-order="stroke fill" filter="url(#markCrisp)"><tspan class="mark-letter" style="animation-delay:0.08s">T</tspan><tspan class="mark-letter" style="animation-delay:0.22s">H</tspan></text>
+    <text x="208" y="176" text-anchor="middle" font-family="Cinzel Decorative, Georgia, serif" font-size="191.84" font-weight="900" letter-spacing="3" transform="" fill="url(#highlightGradient)" opacity="0.5" style="mix-blend-mode:screen"><tspan class="mark-letter" style="animation-delay:0.08s">T</tspan><tspan class="mark-letter" style="animation-delay:0.22s">H</tspan></text>
+      <path class="mark-line" d="M24 218 C112 202 304 202 392 218" fill="none" stroke="url(#edgeGradient)" stroke-width="5" stroke-linecap="round" opacity="0.84"/>
+      <path class="shine" d="M72 70 C134 36 282 36 344 70" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.26"/>
+      <rect class="shine" x="64" y="32" width="88" height="190" fill="#72883e" opacity="0"/>
+    <rect class="pixel" style="animation-delay:.8s" x="190" y="22" width="22" height="22" fill="#72883e"/>
+    <rect class="pixel" style="animation-delay:.95s" x="394" y="206" width="22" height="22" fill="#72883e"/>
+    <rect class="pixel" style="animation-delay:1.1s" x="36" y="226" width="16" height="16" fill="#72883e"/>
+    <rect class="pixel" style="animation-delay:1.25s" x="340" y="12" width="14" height="14" fill="#72883e"/>
+  </g>
+  <g transform="translate(550.9856 51.84)">
+    <text x="76.18" y="228.16" text-anchor="middle" class="logo-letter" style="animation-delay:0.00s" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="176.00" font-weight="900" fill="#415b25" stroke="rgba(255,255,255,0.86)" stroke-width="5" stroke-linejoin="round" paint-order="stroke fill" filter="url(#nameGlow)">T</text><text x="250.42" y="228.16" text-anchor="middle" class="logo-letter" style="animation-delay:0.18s" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="176.00" font-weight="900" fill="#415b25" stroke="rgba(255,255,255,0.86)" stroke-width="5" stroke-linejoin="round" paint-order="stroke fill" filter="url(#nameGlow)">s</text><text x="394.21" y="228.16" text-anchor="middle" class="logo-letter" style="animation-delay:0.36s" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="116.16" font-weight="1000" fill="#415b25" stroke="rgba(255,255,255,0.86)" stroke-width="4" stroke-linejoin="round" paint-order="stroke fill" filter="url(#nameGlow)">i</text><text x="507.55" y="228.16" text-anchor="middle" class="logo-letter" style="animation-delay:0.54s" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="116.16" font-weight="1000" fill="#415b25" stroke="rgba(255,255,255,0.86)" stroke-width="4" stroke-linejoin="round" paint-order="stroke fill" filter="url(#nameGlow)">n</text><text x="620.90" y="228.16" text-anchor="middle" class="logo-letter" style="animation-delay:0.72s" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="116.16" font-weight="1000" fill="#415b25" stroke="rgba(255,255,255,0.86)" stroke-width="4" stroke-linejoin="round" paint-order="stroke fill" filter="url(#nameGlow)">h</text><text x="734.24" y="228.16" text-anchor="middle" class="logo-letter" style="animation-delay:0.90s" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="116.16" font-weight="1000" fill="#415b25" stroke="rgba(255,255,255,0.86)" stroke-width="4" stroke-linejoin="round" paint-order="stroke fill" filter="url(#nameGlow)">o</text><text x="847.58" y="228.16" text-anchor="middle" class="logo-letter" style="animation-delay:1.08s" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="116.16" font-weight="1000" fill="#415b25" stroke="rgba(255,255,255,0.86)" stroke-width="4" stroke-linejoin="round" paint-order="stroke fill" filter="url(#nameGlow)">资</text><text x="960.93" y="228.16" text-anchor="middle" class="logo-letter" style="animation-delay:1.26s" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="116.16" font-weight="1000" fill="#415b25" stroke="rgba(255,255,255,0.86)" stroke-width="4" stroke-linejoin="round" paint-order="stroke fill" filter="url(#nameGlow)">源</text><text x="1074.27" y="228.16" text-anchor="middle" class="logo-letter" style="animation-delay:1.44s" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="116.16" font-weight="1000" fill="#415b25" stroke="rgba(255,255,255,0.86)" stroke-width="4" stroke-linejoin="round" paint-order="stroke fill" filter="url(#nameGlow)">库</text>
+  </g>
+  <g class="flow-beam" filter="url(#flowGlow)">
+    <rect x="-120" y="96" width="420" height="230" rx="34" fill="url(#flowGradient)" opacity="0.72"/>
+    <path class="flow-line" d="M-170 156 H1290" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.58"/>
+    <path class="flow-line" d="M-120 256 H1340" fill="none" stroke="#72883e" stroke-width="6" stroke-linecap="round" opacity="0.48"/>
+  </g>
+  <rect class="shine" x="640" y="118" width="120" height="230" fill="#72883e" opacity="0"/>
+  </g>
+</svg>

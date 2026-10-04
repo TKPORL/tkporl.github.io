@@ -1,0 +1,453 @@
+/* ============================================================================
+   Tsinho资源库 · 下载中心 — single-viewport video-background landing
+   全中文；顶栏 logo + 邮箱反馈；双下载按钮；手机壳预览；页脚
+   背景视频缓慢淡入，避免"瞬间出现"的突兀感
+   ============================================================================ */
+
+/* --- Tokens ---------------------------------------------------------------- */
+:root {
+  --bg: #000000;
+  --text: #ffffff;
+  --muted: #8e8e8e;
+  --nav-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+  --font-sans: "Noto Sans SC", "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Noto Sans SC", "Inter", sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --- Reset ------------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  overflow: hidden;
+  height: 100vh;
+  height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --- Background video (slow fade-in) -------------------------------------- */
+.bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #000;
+  z-index: 0;
+}
+
+.bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transform: scale(1.08);
+  animation: bgIn 2.4s var(--ease) forwards;
+}
+
+@keyframes bgIn {
+  from {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- Page shell ------------------------------------------------------------ */
+.page {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(16px, 2.4vh, 28px) clamp(14px, 3vw, 32px);
+  overflow: hidden;
+}
+
+/* ============================================================================
+   1) HEADER (logo + 邮箱反馈)
+   ============================================================================ */
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 720px;
+  flex-shrink: 0;
+  z-index: 1;
+  animation: slideDown 0.7s var(--ease) both;
+}
+
+/* Logo — circular white mark */
+.logo {
+  width: clamp(40px, 4.4vw, 46px);
+  height: clamp(40px, 4.4vw, 46px);
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: var(--nav-shadow);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  transition: transform 0.25s var(--ease);
+}
+
+.logo:hover {
+  transform: scale(1.04);
+}
+
+.logo img {
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
+}
+
+/* 邮箱反馈 — dark pill */
+.mail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: clamp(44px, 5.2vw, 48px);
+  padding: 0 clamp(14px, 2vw, 20px);
+  background: #28282a;
+  color: #c8c8c8;
+  border-radius: 999px;
+  box-shadow: var(--nav-shadow);
+  font-size: clamp(13px, 1.4vw, 15px);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s var(--ease);
+}
+
+.mail:hover {
+  background: #323234;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ============================================================================
+   2) HERO (copy + CTA)
+   ============================================================================ */
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  max-width: 720px;
+  width: 100%;
+  z-index: 1;
+}
+
+.hero-copy {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(12px, 1.8vh, 20px);
+}
+
+/* Headline — Chinese, Noto Sans SC 900 */
+.headline {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(40px, 6.4vw, 76px);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
+}
+
+.headline .line {
+  display: block;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: headlineFade 0.85s var(--ease) forwards;
+}
+
+.headline .line:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.headline .line:nth-child(2) {
+  animation-delay: 0.24s;
+}
+
+.hero-title-cn {
+  font-family: var(--font-sans);
+  font-size: clamp(15px, 2.2vw, 22px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--text);
+}
+
+.subhead {
+  max-width: min(420px, 90%);
+  font-size: clamp(14px, 1.7vw, 17px);
+  color: #d0d0d0;
+  opacity: 0.82;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* CTA */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 1.6vw, 16px);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #fff;
+  color: #111;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: clamp(14px, 1.5vw, 15px);
+  letter-spacing: 0.04em;
+  padding: clamp(12px, 1.7vh, 14px) clamp(26px, 3.2vw, 32px);
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15),
+    0 0 22px rgba(255, 255, 255, 0.32), 0 0 44px rgba(255, 255, 255, 0.12);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.cta i {
+  font-size: 0.9em;
+}
+
+.cta:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 0 26px rgba(255, 255, 255, 0.5), 0 0 52px rgba(255, 255, 255, 0.18);
+}
+
+/* Toast — 邮箱复制提示 */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: clamp(70px, 12vh, 110px);
+  transform: translate(-50%, 12px);
+  z-index: 100;
+  background: rgba(40, 40, 42, 0.92);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.45);
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ============================================================================
+   3) FOOTER
+   ============================================================================ */
+.foot {
+  flex-shrink: 0;
+  width: 100%;
+  margin-top: auto;
+  z-index: 1;
+}
+
+.footnote {
+  text-align: center;
+  color: var(--muted);
+  font-size: clamp(12px, 1.3vw, 13px);
+  letter-spacing: 0.06em;
+  padding-top: clamp(12px, 2vh, 20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.footnote a {
+  color: #c8c8c8;
+  transition: color 0.25s ease;
+}
+
+.footnote a:hover {
+  color: #fff;
+}
+
+.footnote-quote {
+  font-style: italic;
+  opacity: 0.65;
+  letter-spacing: 0.16em;
+}
+
+/* ============================================================================
+   ENTRANCE ANIMATIONS
+   ============================================================================ */
+.anim {
+  opacity: 0;
+  transform: translateY(22px) scale(0.98);
+  filter: blur(6px);
+  animation: reveal 0.85s var(--ease) forwards;
+  animation-delay: var(--d, 0s);
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.hero-actions.anim {
+  animation-name: revealPulse;
+}
+
+@keyframes revealPulse {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.94);
+    filter: blur(6px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0) scale(1.03);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes headlineFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   RESPONSIVE
+   ============================================================================ */
+@media (max-width: 860px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero-copy {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .headline {
+    font-size: clamp(32px, 10vw, 44px);
+  }
+
+  .subhead {
+    font-size: calc(13px + 1pt);
+  }
+
+  .hero-copy {
+    gap: clamp(10px, 2vh, 16px);
+  }
+}
+
+/* ============================================================================
+   REDUCED MOTION
+   ============================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .bg-video {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .anim {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+  }
+
+  .headline .line {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .header {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

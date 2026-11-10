@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Tsinho资源库 · 下载中心</title>
+  <title>Tsinho 资源库 · 一站式下载中心</title>
+  <meta name="description" content="Tsinho 资源库：汇聚软件、影音、工具与导航的一站式下载中心。安全稳定，持续更新。" />
+  <meta name="theme-color" content="#F7F7F5" />
+  <link rel="icon" href="assets/logo.jpg" />
 
-  <!-- Noto Sans SC (中文 UI + 主标题) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome 6.5.2 (线性图标) -->
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -20,62 +21,330 @@
 </head>
 
 <body>
-  <!-- 全屏循环背景视频（缓慢淡入） -->
-  <div class="bg">
-    <video class="bg-video" autoplay muted loop playsinline>
-      <source
-        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260809_012548_ef22562c-c0ae-4816-ad9d-f8922af4e6a7.mp4"
-        type="video/mp4"
-      />
-    </video>
-  </div>
-
-  <div class="page">
-    <!-- 1) 顶栏 -->
-    <header class="header">
-      <a class="logo" href="#" aria-label="Tsinho资源库 — 首页">
-        <img src="assets/logo.webp" alt="" width="52" height="52" />
+  <!-- 顶部导航 -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Tsinho 资源库 首页">
+        <span class="brand-name">Tsinho 资源库</span>
       </a>
-      <a class="mail" href="mailto:Tsinhos@qq.com" id="mailBtn">
+
+      <nav class="nav-links" aria-label="页面导航">
+        <a href="#resources">资源</a>
+        <a href="#download">下载</a>
+        <a href="#contact">联系</a>
+      </nav>
+
+      <a class="nav-mail" href="mailto:Tsinhos@qq.com" id="mailBtn">
         <i class="fa-solid fa-envelope" aria-hidden="true"></i>
         <span>邮箱反馈</span>
       </a>
-    </header>
+    </div>
+  </header>
 
-    <!-- 2) 主视觉 -->
-    <main class="hero">
-      <div class="hero-copy">
-        <h1 class="headline">
+  <main id="top">
+    <!-- 首屏 -->
+    <section class="hero">
+      <div class="wrap">
+        <span class="badge anim" style="--d:.05s">
+          <span class="dot" aria-hidden="true"></span>
+          2026 · 持续更新
+        </span>
+
+        <h1 class="headline anim" style="--d:.2s">
           <span class="line">优质资源</span>
-          <span class="line">极速直达</span>
+          <span class="line">一站直达</span>
         </h1>
 
-        <p class="hero-title-cn anim" style="--d:0.24s">Tsinho 资源库 · 一站式下载中心</p>
-
-        <p class="subhead anim" style="--d:0.34s">
-          汇聚资源、下载与导航于一体，安全稳定 · 持续更新。
+        <p class="subhead anim" style="--d:.3s">
+          汇聚软件、影音、工具与导航于一体的一站式下载中心。<br />
+          安全稳定，持续更新，没有多余的东西。
         </p>
 
-        <div class="hero-actions anim" style="--d:0.44s">
-          <a class="cta" href="https://www.lequxiang.com.cn/down.php/a9bcd9b37b29395267506d69b202ac26.apk" download>
+        <div class="byline anim" style="--d:.36s">
+          <img class="byline-avatar" src="assets/avatar.webp" alt="Tsinho" width="26" height="26" />
+          <span class="byline-name">Tsinho</span>
+          <span class="byline-sep" aria-hidden="true"></span>
+          <a class="byline-link" href="#contact">关于我们</a>
+        </div>
+
+        <div class="actions anim" style="--d:.44s">
+          <a class="btn btn-solid" href="https://www.lequxiang.com.cn/down.php/a9bcd9b37b29395267506d69b202ac26.apk" download>
             <i class="fa-solid fa-download" aria-hidden="true"></i>
             <span>立即下载</span>
           </a>
+          <a class="btn btn-ghost" href="#resources">
+            <span>浏览资源库</span>
+            <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <ul class="facts anim" style="--d:.5s">
+          <li><i class="fa-brands fa-android" aria-hidden="true"></i> Android 客户端</li>
+          <li><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> 安全已验证</li>
+          <li><i class="fa-solid fa-infinity" aria-hidden="true"></i> 完全免费</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 01 资源库 -->
+    <section class="section" id="resources">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="sec-num">01</span>
+          <h2 class="sec-title">资源库</h2>
+          <span class="sec-note">九个分类，一站收纳</span>
+        </div>
+
+        <div class="res-grid">
+          <a class="res" href="https://tkporl.github.io/mrhyfx/" target="_blank" rel="noopener" data-name="Tsinho黄油站">
+            <span class="res-ico" style="--c:#F5A623"><i class="fa-solid fa-gamepad" aria-hidden="true"></i></span>
+            <span class="res-name">Tsinho黄油站</span>
+            <span class="res-desc">自建站点</span>
+          </a>
+
+          <a class="res" href="https://yun.139.com/shareweb/#/w/i/2sNZXpjCvuYya" target="_blank" rel="noopener" data-name="看片软件">
+            <span class="res-ico" style="--c:#34C759"><i class="fa-solid fa-video" aria-hidden="true"></i></span>
+            <span class="res-name">看片软件</span>
+            <span class="res-desc">影视点播</span>
+          </a>
+
+          <a class="res" href="https://yun.139.com/shareweb/#/w/i/2sNZYCq0tErl5" target="_blank" rel="noopener" data-name="实用软件">
+            <span class="res-ico" style="--c:#2ECC71"><i class="fa-solid fa-window-maximize" aria-hidden="true"></i></span>
+            <span class="res-name">实用软件</span>
+            <span class="res-desc">精品破解</span>
+          </a>
+
+          <a class="res" href="https://yun.139.com/shareweb/#/w/i/2sNZYCq0tEPqe" target="_blank" rel="noopener" data-name="VPN">
+            <span class="res-ico" style="--c:#8B6FE8"><i class="fa-solid fa-globe" aria-hidden="true"></i></span>
+            <span class="res-name">VPN</span>
+            <span class="res-desc">网络加速</span>
+          </a>
+
+          <a class="res" href="https://yun.139.com/shareweb/#/w/i/2sNZXpjCvtWww" target="_blank" rel="noopener" data-name="绅士壁纸">
+            <span class="res-ico" style="--c:#F5455C"><i class="fa-solid fa-image" aria-hidden="true"></i></span>
+            <span class="res-name">绅士壁纸</span>
+            <span class="res-desc">绅士图片</span>
+          </a>
+
+          <a class="res" href="https://yun.139.com/shareweb/#/w/i/2sZXSmDnDp67" target="_blank" rel="noopener" data-name="影音娱乐">
+            <span class="res-ico" style="--c:#A855F7"><i class="fa-solid fa-film" aria-hidden="true"></i></span>
+            <span class="res-name">影音娱乐</span>
+            <span class="res-desc">影视音乐</span>
+          </a>
+
+          <a class="res" href="https://yun.139.com/shareweb/#/w/i/2sNZZesFZFmhv" target="_blank" rel="noopener" data-name="大小型游戏">
+            <span class="res-ico" style="--c:#4ECDC4"><i class="fa-solid fa-dice" aria-hidden="true"></i></span>
+            <span class="res-name">大小型游戏</span>
+            <span class="res-desc">游戏合集</span>
+          </a>
+
+          <a class="res" href="https://yun.139.com/shareweb/#/w/i/2uh93dUP2tWw5" target="_blank" rel="noopener" data-name="节点搭建教程">
+            <span class="res-ico" style="--c:#4A7BF7"><i class="fa-solid fa-server" aria-hidden="true"></i></span>
+            <span class="res-name">节点搭建教程</span>
+            <span class="res-desc">从零上手</span>
+          </a>
+
+          <a class="res" href="#" id="netdiskCard" data-modal="netdisk" data-name="网盘不限速工具">
+            <span class="res-ico" style="--c:#F06292"><i class="fa-solid fa-cloud" aria-hidden="true"></i></span>
+            <span class="res-name">网盘不限速工具</span>
+            <span class="res-desc">五家网盘教程</span>
+          </a>
         </div>
       </div>
-    </main>
+    </section>
 
-    <!-- 3) 页脚 -->
-    <footer class="foot">
-      <div class="footnote anim" style="--d:0.58s">
-        &copy; 2026 Tsinho ·
-        <a href="mailto:Tsinhos@qq.com">Tsinhos@qq.com</a>
-        <span class="footnote-quote">「简约而不简单，宁静以致远」</span>
+    <!-- 02 下载 -->
+    <section class="section" id="download">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="sec-num">02</span>
+          <h2 class="sec-title">下载客户端</h2>
+          <span class="sec-note">Android · 最新版</span>
+        </div>
+
+        <div class="dl">
+          <div class="dl-main">
+            <h3 class="dl-title">Tsinho 资源库</h3>
+            <p class="dl-text">
+              安装包已就绪，下载后直接安装即可。资源库、下载与导航全部收在一个应用里。
+            </p>
+
+            <dl class="dl-specs">
+              <div>
+                <dt>文件类型</dt>
+                <dd>APK</dd>
+              </div>
+              <div>
+                <dt>支持平台</dt>
+                <dd>Android</dd>
+              </div>
+              <div>
+                <dt>安全状态</dt>
+                <dd>已验证</dd>
+              </div>
+              <div>
+                <dt>更新状态</dt>
+                <dd>持续维护</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="dl-side">
+            <a class="btn btn-solid btn-wide" href="https://www.lequxiang.com.cn/down.php/a9bcd9b37b29395267506d69b202ac26.apk" download>
+              <i class="fa-solid fa-download" aria-hidden="true"></i>
+              <span>下载 APK</span>
+            </a>
+            <p class="dl-hint">如无法下载，请通过邮箱反馈</p>
+          </div>
+        </div>
       </div>
-    </footer>
+    </section>
+
+    <!-- 03 联系 -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="sec-num">03</span>
+          <h2 class="sec-title">联系与导航</h2>
+          <span class="sec-note">有问题随时找我</span>
+        </div>
+
+        <div class="links">
+          <a class="link-row" href="mailto:Tsinhos@qq.com" id="mailRow">
+            <span class="link-ico"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+            <span class="link-body">
+              <span class="link-title">邮箱反馈</span>
+              <span class="link-desc">Tsinhos@qq.com</span>
+            </span>
+            <i class="fa-solid fa-arrow-right link-arrow" aria-hidden="true"></i>
+          </a>
+
+          <a class="link-row" href="https://link3.cc/Tsinho" target="_blank" rel="noopener">
+            <span class="link-ico"><i class="fa-solid fa-compass" aria-hidden="true"></i></span>
+            <span class="link-body">
+              <span class="link-title">导航站</span>
+              <span class="link-desc">link3.cc/Tsinho</span>
+            </span>
+            <i class="fa-solid fa-arrow-right link-arrow" aria-hidden="true"></i>
+          </a>
+
+          <a class="link-row" href="https://qm.qq.com/q/Ya8wQpPaeW" target="_blank" rel="noopener">
+            <span class="link-ico"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i></span>
+            <span class="link-body">
+              <span class="link-title">站长 QQ</span>
+              <span class="link-desc">点击添加好友</span>
+            </span>
+            <i class="fa-solid fa-arrow-right link-arrow" aria-hidden="true"></i>
+          </a>
+
+          <a class="link-row" href="https://t.me/Tsinhox" target="_blank" rel="noopener">
+            <span class="link-ico"><i class="fa-brands fa-telegram" aria-hidden="true"></i></span>
+            <span class="link-body">
+              <span class="link-title">Telegram 群聊</span>
+              <span class="link-desc">t.me/Tsinhox</span>
+            </span>
+            <i class="fa-solid fa-arrow-right link-arrow" aria-hidden="true"></i>
+          </a>
+
+          <a class="link-row" href="https://qm.qq.com/q/feKklWYXLO" target="_blank" rel="noopener">
+            <span class="link-ico"><i class="fa-solid fa-users" aria-hidden="true"></i></span>
+            <span class="link-body">
+              <span class="link-title">QQ 群 · 1 群</span>
+              <span class="link-desc">点击加入</span>
+            </span>
+            <i class="fa-solid fa-arrow-right link-arrow" aria-hidden="true"></i>
+          </a>
+
+          <a class="link-row" href="https://qm.qq.com/q/E3WKZvqwAa" target="_blank" rel="noopener">
+            <span class="link-ico"><i class="fa-solid fa-users" aria-hidden="true"></i></span>
+            <span class="link-body">
+              <span class="link-title">QQ 群 · 2 群</span>
+              <span class="link-desc">点击加入</span>
+            </span>
+            <i class="fa-solid fa-arrow-right link-arrow" aria-hidden="true"></i>
+          </a>
+
+          <a class="link-row" href="https://qm.qq.com/q/WBvMMALeYS" target="_blank" rel="noopener">
+            <span class="link-ico"><i class="fa-solid fa-users" aria-hidden="true"></i></span>
+            <span class="link-body">
+              <span class="link-title">QQ 群 · 3 群</span>
+              <span class="link-desc">点击加入</span>
+            </span>
+            <i class="fa-solid fa-arrow-right link-arrow" aria-hidden="true"></i>
+          </a>
+
+          <a class="link-row" href="https://qm.qq.com/q/FGM2WKIoyA" target="_blank" rel="noopener">
+            <span class="link-ico"><i class="fa-solid fa-users" aria-hidden="true"></i></span>
+            <span class="link-body">
+              <span class="link-title">QQ 群 · 4 群</span>
+              <span class="link-desc">点击加入</span>
+            </span>
+            <i class="fa-solid fa-arrow-right link-arrow" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-inner">
+      <span class="foot-brand">Tsinho 资源库</span>
+      <span class="foot-quote">「简约而不简单，宁静以致远」</span>
+      <span class="foot-copy">&copy; 2026 Tsinho</span>
+    </div>
+  </footer>
+
+  <!-- 网盘不限速教程弹窗 -->
+  <div class="modal" id="netdiskModal" role="dialog" aria-modal="true" aria-labelledby="netdiskTitle">
+    <div class="modal-backdrop" data-close></div>
+
+    <div class="modal-panel">
+      <button class="modal-x" type="button" data-close aria-label="关闭">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+
+      <h3 class="modal-title" id="netdiskTitle">网盘不限速教程</h3>
+      <p class="modal-desc">选择你正在用的网盘，进入对应教程</p>
+
+      <div class="modal-list">
+        <a class="modal-item" href="https://pan.baidu.com/s/1OyxyEx7iR5nAAsK9FrYSIw?pwd=839m" target="_blank" rel="noopener">
+          <span class="modal-ico"><img src="assets/netdisk/baidu.ico" alt="" width="24" height="24" /></span>
+          <span class="modal-name">百度网盘</span>
+          <i class="fa-solid fa-arrow-right modal-arrow" aria-hidden="true"></i>
+        </a>
+
+        <a class="modal-item" href="https://pan.baidu.com/s/1kFXBX9W64RRLfrFaLXfrnw?pwd=839m" target="_blank" rel="noopener">
+          <span class="modal-ico"><img src="assets/netdisk/quark.ico" alt="" width="24" height="24" /></span>
+          <span class="modal-name">夸克网盘</span>
+          <i class="fa-solid fa-arrow-right modal-arrow" aria-hidden="true"></i>
+        </a>
+
+        <a class="modal-item" href="https://pan.baidu.com/s/1tMTLLIhqw1at78MqnWhErg?pwd=839m" target="_blank" rel="noopener">
+          <span class="modal-ico"><img src="assets/netdisk/uc.png" alt="" width="24" height="24" /></span>
+          <span class="modal-name">UC 网盘</span>
+          <i class="fa-solid fa-arrow-right modal-arrow" aria-hidden="true"></i>
+        </a>
+
+        <a class="modal-item" href="https://pan.baidu.com/s/1Mc223gqv4Li__7fQ3d7Xqw?pwd=839m" target="_blank" rel="noopener">
+          <span class="modal-ico"><img src="assets/netdisk/xunlei.ico" alt="" width="24" height="24" /></span>
+          <span class="modal-name">迅雷网盘</span>
+          <i class="fa-solid fa-arrow-right modal-arrow" aria-hidden="true"></i>
+        </a>
+
+        <a class="modal-item" href="https://pan.baidu.com/s/1SwN2i19kNfsrIQfV6KmLZA?pwd=839m" target="_blank" rel="noopener">
+          <span class="modal-ico"><img src="assets/netdisk/123.ico" alt="" width="24" height="24" /></span>
+          <span class="modal-name">123 网盘</span>
+          <i class="fa-solid fa-arrow-right modal-arrow" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <a class="modal-main" href="https://pan.baidu.com/s/1kAmysjWqyDYPw-hTrxWaHA?pwd=839m" target="_blank" rel="noopener">
+        <i class="fa-solid fa-download" aria-hidden="true"></i>
+        <span>直接下载工具（提取码 839m）</span>
+      </a>
+    </div>
   </div>
 
-  <!-- 复制邮箱提示 -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="main.js"></script>
